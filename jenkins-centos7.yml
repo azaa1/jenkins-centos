@@ -34,8 +34,10 @@
           name: jenkins
           enabled: yes
 
+      - debug: msg="Administrator password:  {{lookup('file', '/var/lib/jenkins/secrets/initialAdminPassword') }}"
+
 # If you need to open the necessary port for Jenkins,
-# uncomment the following lines: 
+# uncomment the following lines:
 
 #      - name: Add port 8080 to firewall
 #        firewalld:

@@ -1,0 +1,36 @@
+# Jenkins is an open source, Java-based automation server that offers
+# an easy way to set up a continuous integration and continuous
+# delivery (CI/CD) pipeline.
+
+# Jenkins is a Java application, so we need to install Java.
+
+---
+  - name: Jenkins Installation on CentOS 7
+  - hosts: localhost
+  - tasks:
+      - name: Install the OpenJDK 8 package
+        yum:
+          name: java-1.8.0-openjdk-devel
+          state: present
+
+      - name: Add Jenkins Repository
+        uri:
+          url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+          dest: /etc/yum.repos.d/jenkins.repo
+
+      - name: Import the key
+        rpm_key:
+          state: present
+          key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+      - name: Start Jenkins and Enable jenkins
+        systemd:
+          state: started
+          name: jenkins
+          enabled: yes
+
+      - name: Add port 8080 to firewall
+        firewalld:
+          port: 8080/tcp
+          permanent: yes
+          state: enabled

@@ -6,8 +6,8 @@
 
 ---
   - name: Jenkins Installation on CentOS 7
-  - hosts: localhost
-  - tasks:
+    hosts: localhost
+    tasks:
       - name: Install the OpenJDK 8 package
         yum:
           name: java-1.8.0-openjdk-devel

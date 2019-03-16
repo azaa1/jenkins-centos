@@ -34,7 +34,17 @@
           name: jenkins
           enabled: yes
 
-      - debug: msg="Administrator password:  {{lookup('file', '/var/lib/jenkins/secrets/initialAdminPassword') }}"
+      - name: Get Administrator password
+        slurp:
+          src: /var/lib/jenkins/secrets/initialAdminPassword
+        register: password
+
+      - name: Print Administrator password
+        debug:
+          msg: "Administrator password: {{ password['content'] | b64decode }}"
+
+
+
 
 # If you need to open the necessary port for Jenkins,
 # uncomment the following lines:

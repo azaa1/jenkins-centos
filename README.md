@@ -1,5 +1,19 @@
 ## Jenkins Installation on CentOS 7
 
+* Prerequisites :
+
+OS - CentOS7
+
+Minimum hardware requirements:
+
+256 MB of RAM
+1 GB of drive space (although 10 GB is a recommended minimum if running Jenkins as a Docker container)
+
+Recommended hardware configuration for a small team:
+
+1 GB+ of RAM
+50 GB+ of drive space
+
 
 Jenkins is an open source, Java-based automation server that offers an easy way to set up a continuous integration and continuous delivery (CI/CD) pipeline.
 
@@ -32,4 +46,4 @@ If the installation was successfull, at the end of run, you should see:
     -Jenkins login:
     -Administrator password:
 
-    * NOTE: If you see "\n" at the end of password, don't copy the "\n". 
+    * NOTE: If you see "\n" at the end of password, don't copy the "\n".

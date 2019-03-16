@@ -23,14 +23,22 @@
           state: present
           key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
+      - name: Install jenkins
+        yum:
+          name: jenkins
+          state: present
+
       - name: Start Jenkins and Enable jenkins
         systemd:
           state: started
           name: jenkins
           enabled: yes
 
-      - name: Add port 8080 to firewall
-        firewalld:
-          port: 8080/tcp
-          permanent: yes
-          state: enabled
+# If you need to open the necessary port for Jenkins,
+# uncomment the following lines: 
+
+#      - name: Add port 8080 to firewall
+#        firewalld:
+#          port: 8080/tcp
+#          permanent: yes
+#          state: enabled

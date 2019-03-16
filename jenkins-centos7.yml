@@ -41,7 +41,9 @@
 
       - name: Print Administrator password
         debug:
-          msg: "Administrator password: {{ password['content'] | b64decode }}"
+          msg:
+            - "Jenkins login: {{ ansible_ssh_host}}:8080"
+            - "Administrator password: {{ password['content'] | b64decode }}"
 
 # Adjust the Firewall
 # If you need to open the necessary port for Jenkins,

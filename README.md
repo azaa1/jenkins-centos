@@ -21,3 +21,15 @@ This playbook installs Jenkins on CentOS 7.
 7. Print the password as message
 
 8. Adjust the firewall, if necessary
+
+
+* Run the playbook with the following command:
+
+ansible-playbook jenkins-centos7.yml | sed 's/\\n/\n/g'
+
+If the installation was successfull, at the end of run, you should see:
+
+    -Jenkins login:
+    -Administrator password:
+
+    * NOTE: If you see "\n" at the end of password, don't copy the "\n". 
